@@ -14,7 +14,7 @@
 
 - **武汉科技大学**, 软件工程学士
 - 主修课程：数据结构、Linux操作系统、Java/Android、C/C#、设计模式等。
-- 大学期间项目经历： https://petterobam.github.io/info/static/image/university_resume.png
+- 大学期间项目经历： [前往](UNIVERSITY-RESUME-zh.md)
 
 # 工作经验
 

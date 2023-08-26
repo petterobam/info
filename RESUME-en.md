@@ -14,7 +14,7 @@ With over 7 years of experience in software development, specializing in backend
 
 - **Wuhan University of Technology**, Bachelor's in Software Engineering
   - Courses Covered: Data Structures, Linux Operating System, Java/Android, C/C#, Design Patterns, etc.
-  - View University Projects: https://petterobam.github.io/info/static/image/university_resume.png
+  - View University Projects: [前往](UNIVERSITY-RESUME-en.md)
 
 # Work Experience
 
