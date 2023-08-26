@@ -2,8 +2,9 @@
 
 - **Name**: Ouyang Jie
 - **Contact**: 17764218703 / 1460300366@qq.com
-- **Github**: https://github.com/petterobam
-- **LinkedIn**: https://www.linkedin.com/in/petterobam
+- **Blog**: [www.petterobam.cn](https://www.petterobam.cn)
+- **Github**: <https://github.com/petterobam>
+- **LinkedIn**: <https://www.linkedin.com/in/petterobam>
 - **Address**: Hangzhou, China
 
 # Personal Summary
