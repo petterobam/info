@@ -1,7 +1,7 @@
 # 基本信息
 
 - **姓名**: 欧阳洁
-- **联系方式**: 17764218703 | 1460300366@qq.com
+- **联系方式**: 17764218703 / 1460300366@qq.com
 - **Github**: https://github.com/petterobam
 - **LinkedIn**: https://www.linkedin.com/in/petterobam
 - **地址**: 中国杭州
