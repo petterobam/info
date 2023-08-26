@@ -1,6 +1,6 @@
 # 电子简历（E-Resume）
 
-- [中文简历](REASUME.md)
+- [中文简历](RESUME-zh.md)
 - [English Resume](RESUME-en.md)
 
 # 作息参考表（Schedule）
