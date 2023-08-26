@@ -14,7 +14,7 @@ With over 7 years of experience in software development, specializing in backend
 
 - **Wuhan University of Technology**, Bachelor's in Software Engineering
   - Courses Covered: Data Structures, Linux Operating System, Java/Android, C/C#, Design Patterns, etc.
-  - View University Projects: [前往](UNIVERSITY-RESUME-en.md)
+  - View University Projects: [Go](UNIVERSITY-RESUME-en.md)
 
 # Work Experience
 
@@ -48,7 +48,7 @@ Served as a Senior Software Developer at NetEase Cloud Music, mainly responsible
 - Brief Description: 
   - Served as a Software Engineer at Baidu, responsible for financial reports, transactions, and computing engine systems (2018-2020); 
   - Served as a Software Engineer and Project Manager at Wuhan Shengyi Technology Development Co., Ltd., responsible for the order system (2016-2018).
-- [View Previous Work Details](https://petterobam.github.io/info/)
+- [View Previous Work Details](RESUME-P1-zh.md)
 
 # Skills
 
