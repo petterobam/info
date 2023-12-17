@@ -42,7 +42,7 @@ I specialize in **Java/Web** development and design, with extensive experience i
   - **ASMS10000 System Refactoring Project (spring mvc + mybatis + oracle + maven multi-project integration)**
     - After refactoring, there were some hidden dangers in the connection and interaction between various systems. Apply for the establishment of the "Tourism Order Process Overall Optimization Project" and complete the project as a project manager.
   - **"Tourism Word, PDF Document Import and Parsing Project"**
-    - Solve the problem of slow product entry, automatically read, parse, and match the product release form by importing tourism product documents. Implementation details: [Link](#)
+    - Solve the problem of slow product entry, automatically read, parse, and match the product release form by importing tourism product documents. Implementation details: [Link](https://www.petterobam.cn/blog/2017/10/25/Word-PDF-Parse-1/)
   - **Assisted in completing technology-oriented projects for the tourism group:**
     - "Tourism Electronic Contract Project", Java layer electronic contract dynamic template, RSA+MD5 secret chain, canvas electronic signature based on H5;
     - "Elasticsearch Product Search Optimization", reduce database pressure, lower response time, enrich search range, synchronize processed data to ES database regularly, object-oriented ES encapsulation;
@@ -59,7 +59,7 @@ I specialize in **Java/Web** development and design, with extensive experience i
 - **Outstanding Student Certificate + Scholarship (Freshman Year)**
 - **Copyright of College Innovation Project (WeChat Public Platform wusthelper [As of early 2016, user volume exceeded 20,000])**
 - **7th Chengdu Software and Application Design Competition (Honorable Mention)**
-- Certificate of Compliance with Alibaba Java Development Manual, [click to view](https://petterobam.github.io/info/static/image/aliyun-coding.jpg)
+- Certificate of Compliance with Alibaba Java Development Manual, [click to view](https://petterobam.github.io/info/old/static/image/aliyun-coding.jpg)
 
 ---
 

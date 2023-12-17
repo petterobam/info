@@ -43,7 +43,7 @@
   - **ASMS10000系统重构项目（spring mvc + mybatis + oracle + maven多项目集成）**
     - 重构后，各系统之间衔接和交互有些许隐患，申请立项《旅游订单流程整体优化项目》，以项目经理身份带人完成该项目。
   - **《旅游word、pdf文档导入解析项目》**
-    - 解决旅游产品录入慢问题，通过导入旅游产品文档自动读取、解析、匹配填充产品发布表单，实现思路见：[链接](#)
+    - 解决旅游产品录入慢问题，通过导入旅游产品文档自动读取、解析、匹配填充产品发布表单，实现思路见：[链接](https://www.petterobam.cn/blog/2017/10/25/Word-PDF-Parse-1/)
   - **其他协助完成旅游组偏技术型项目：**
     - 《旅游电子合同项目》，java 层电子合同动态模板，RSA+MD5 秘链，基于 H5 的 cavans 电子签名；
     - 《Elasticsearch产品搜索优化》，减轻数据库压力，降低响应时间，丰富搜索范围，定时将处理好的数据同步到ES数据库，面向对象的ES封装；
@@ -60,7 +60,7 @@
 - **优秀学生证书+奖学金（大一）**
 - **学院创新项目著作版权（微信公众平台 wusthelper[截止2016年初用户量2W+]）**
 - **第七届成都软件与应用设计大赛（优胜奖）**
-- 《阿里巴巴Java开发手册》编码规范证书，[点击查看>>](https://petterobam.github.io/info/static/image/aliyun-coding.jpg)
+- 《阿里巴巴Java开发手册》编码规范证书，[点击查看>>](https://petterobam.github.io/info/old/static/image/aliyun-coding.jpg)
 
 ---
 
