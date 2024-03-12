@@ -11,6 +11,14 @@
 
 With over 7 years of experience in software development, specializing in backend and full-stack development. Currently seeking freelance opportunities to create more user value and establish long-term collaborations.
 
+# Personal Products
+
+> AI Programming Practices #Swift
+
+1. [Z2Y E&M](https://github.com/petterobam/Z2y-Product/releases): Build everything from scratch (MAC)
+2. [Z2Y R&M](https://apps.apple.com/cn/app/z2y-reader-manager/id6478165076?mt=12): Construct your knowledge base from the ground up (MAC)
+3. [Z2Y DMG](https://github.com/zero2you4tech/Z2Y-DMG): Tool to package apps into DMG format (MAC)
+
 # Education
 
 - **Wuhan University of Technology**, Bachelor's in Software Engineering
