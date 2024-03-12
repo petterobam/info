@@ -65,6 +65,7 @@
 - **框架**: Spring, MyBatis, Elasticsearch
 - **数据库**: MySQL, Oracle
 - **工具**: Git, Maven, Docker
+- **AI**: Ollama, Stable Diffusion, ChatGPT, Prompt 技能等
 
 # 其他信息
 
@@ -76,3 +77,4 @@
 
 - **开源贡献**: 热衷于开源项目，在Github上积极贡献代码。
 - **公开演讲和表演**: 喜欢在公司或社区活动中进行公开演讲和表演。
+

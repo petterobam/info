@@ -65,6 +65,7 @@ Served as a Senior Software Developer at NetEase Cloud Music, mainly responsible
 - **Frameworks**: Spring, MyBatis, Elasticsearch
 - **Databases**: MySQL, Oracle
 - **Tools**: Git, Maven, Docker
+- **AI**: Ollama, Stable Diffusion, ChatGPT, Prompt Skill, etc.
 
 # Additional Information
 
