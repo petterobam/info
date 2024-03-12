@@ -61,7 +61,7 @@
 
 # 技能
 
-- **编程语言**: Java, C#, Python
+- **编程语言**: Java, Swift, C#, Python
 - **框架**: Spring, MyBatis, Elasticsearch
 - **数据库**: MySQL, Oracle
 - **工具**: Git, Maven, Docker

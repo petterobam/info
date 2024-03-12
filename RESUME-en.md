@@ -61,7 +61,7 @@ Served as a Senior Software Developer at NetEase Cloud Music, mainly responsible
 
 # Skills
 
-- **Programming Languages**: Java, C#, Python
+- **Programming Languages**: Java, Swift, C#, Python
 - **Frameworks**: Spring, MyBatis, Elasticsearch
 - **Databases**: MySQL, Oracle
 - **Tools**: Git, Maven, Docker
