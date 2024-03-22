@@ -13,7 +13,7 @@
 
 # 个人产品
 
-> AI 编程实践 #Swift
+> AI 编程实践 #Swift(0基础)
 
 1. [Z2Y E&M](https://github.com/petterobam/Z2y-Product/releases): 从零开始构建你的一切（MAC）
 2. [Z2Y R&M](https://apps.apple.com/cn/app/z2y-reader-manager/id6478165076?mt=12): 从零开始搭建你的知识库（MAC）
