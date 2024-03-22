@@ -24,7 +24,7 @@ With over 7 years of experience in software development, specializing in backend
 
 # Education
 
-- **Wuhan University of Technology**, Bachelor's in Software Engineering
+- **Wuhan University of Technology**, Bachelor's in Software Engineering, 2012.9.1 - 2016.6.1
   - Courses Covered: Data Structures, Linux Operating System, Java/Android, C/C#, Design Patterns, etc.
   - View University Projects: [Go](UNIVERSITY-RESUME-en.md)
 
