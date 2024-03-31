@@ -17,7 +17,7 @@
 
 1. [Z2Y E&M](https://github.com/petterobam/Z2y-Product/releases): 从零开始构建你的一切（MAC）
 2. [Z2Y R&M](https://apps.apple.com/cn/app/z2y-reader-manager/id6478165076?mt=12): 从零开始搭建你的知识库（MAC）
-3. [Z2Y AI](): 你的 AI 管家：本地或远程 AI + Prompt 管理（MAC）
+3. [Z2Y AI](https://apps.apple.com/cn/app/z2y-ai-manager/id6479319882?mt=12): 你的 AI 管家：本地或远程 AI + Prompt 管理（MAC）
 4. [Z2Y Water](https://apps.apple.com/cn/app/z2y-%E8%AF%B7%E5%96%9D%E6%B0%B4/id6479874840?mt=12): 为了更好的自己，请多喝水！！！（MAC&IOS）
 5. [Z2Y DMG](https://github.com/zero2you4tech/Z2Y-DMG): 打包 App 成 DMG 工具（MAC）
 6. Z2Y CMD、Z2Y Book4?、Z2Y 天问等参见： [无何有工作室(个人)](https://github.com/zero2you4tech)

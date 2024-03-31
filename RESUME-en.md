@@ -17,7 +17,7 @@ With over 7 years of experience in software development, specializing in backend
 
 1. [Z2Y E&M](https://github.com/petterobam/Z2y-Product/releases): Build everything from scratch (MAC)
 2. [Z2Y R&M](https://apps.apple.com/cn/app/z2y-reader-manager/id6478165076?mt=12): Construct your knowledge base from the ground up (MAC)
-3. [Z2Y AI](): Your AI Butler: Local&Remote AI + Prompt Management (MAC)
+3. [Z2Y AI](https://apps.apple.com/cn/app/z2y-ai-manager/id6479319882?mt=12): Your AI Butler: Local&Remote AI + Prompt Management (MAC)
 4. [Z2Y Water](https://apps.apple.com/cn/app/z2y-%E8%AF%B7%E5%96%9D%E6%B0%B4/id6479874840?mt=12): For a better self, please keep drinking water!!!（MAC&IOS）
 5. [Z2Y DMG](https://github.com/zero2you4tech/Z2Y-DMG): Tool to package apps into DMG format (MAC)
 6. Z2Y CMD、Z2Y Book4?、Z2Y Ask Change, etc:  [Zero2You Studio](https://github.com/zero2you4tech)
