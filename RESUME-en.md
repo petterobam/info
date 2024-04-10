@@ -44,7 +44,7 @@ Served as a Senior Software Developer at NetEase Cloud Music, mainly responsible
   - Responsible for the development of the comment system and friend relationships.
   - Implemented a series of optimization measures to improve system performance and user experience.
   - Built a crowdsourcing system to fully automate the governance of comments, from the client-side to algorithms, then to crowdsourcing and operations, achieving automatic content filtering and optimization.
-  - The crowdsourcing system was later platformized and extended for the governance of content in other products.
+  - The crowdsourcing system was later platformized by me and extended for governance of content in other product areas, serving as a crucial component in supporting the 100-million-streamlining safety review projects.
 
 - **Led S-level Projects (Up to 20 People)**
   - Successfully led and completed S-level projects with a team size of up to 20 people.
