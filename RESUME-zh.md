@@ -51,7 +51,7 @@
   - 主要活动包括"星级评论上月亮"和"网易云音乐年度报告"。
 
 - **专利成就（3项）**
-  - [视频流消费区块链分析与应用](https://www.petterobam.cn/blog/2021/05/24/patent/)
+  - [视频流消费区块链分析与应用](https://www.petterobam.cn/blog/2021/05/24/patent/) | [预览](file/parent-1.png)
   - [音乐与创作物联笔的分析与应用](https://www.petterobam.cn/blog/2022/10/27/patent-1/)
   - [一种自我调控的众包审核装置](https://www.petterobam.cn/blog/2022/11/28/patent-2/)
 
