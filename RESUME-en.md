@@ -51,9 +51,9 @@ Served as a Senior Software Developer at NetEase Cloud Music, mainly responsible
   - Major activities include "Star-Level Comments to the Moon" and "NetEase Cloud Music Annual Report".
 
 - **Patent Achievements (3 Items)**
-  - [Video Stream Consumption Blockchain Analysis and Application](https://www.petterobam.cn/blog/2021/05/24/patent/)
-  - [Music and Creation IoT Pen Analysis and Application](https://www.petterobam.cn/blog/2022/10/27/patent-1/)
-  - [A Self-Regulating Crowdsourcing Audit Device](https://www.petterobam.cn/blog/2022/11/28/patent-2/)
+  - [Video Stream Consumption Blockchain Analysis and Application](https://www.petterobam.cn/blog/2021/05/24/patent/) | [Preview](file/patent-1.png)
+  - [Music and Creation IoT Pen Analysis and Application](https://www.petterobam.cn/blog/2022/10/27/patent-1/) | [Preview](file/patent-2.png)
+  - [A Self-Regulating Crowdsourcing Audit Device](https://www.petterobam.cn/blog/2022/11/28/patent-2/) | [Preview](file/patent-3.png)
 
 ## Previous Work Experience
 

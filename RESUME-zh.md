@@ -52,8 +52,8 @@
 
 - **专利成就（3项）**
   - [视频流消费区块链分析与应用](https://www.petterobam.cn/blog/2021/05/24/patent/) | [预览](file/patent-1.png)
-  - [音乐与创作物联笔的分析与应用](https://www.petterobam.cn/blog/2022/10/27/patent-1/)
-  - [一种自我调控的众包审核装置](https://www.petterobam.cn/blog/2022/11/28/patent-2/)
+  - [音乐与创作物联笔的分析与应用](https://www.petterobam.cn/blog/2022/10/27/patent-1/) | [预览](file/patent-2.png)
+  - [一种自我调控的众包审核装置](https://www.petterobam.cn/blog/2022/11/28/patent-2/) | [预览](file/patent-3.png)
 
 ## 过往工作经验
 
