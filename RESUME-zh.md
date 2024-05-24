@@ -50,7 +50,7 @@
   - 成功地带领和完成了S级项目，团队规模多达20人。
   - 主要活动包括"星级评论上月亮"和"网易云音乐年度报告"。
 
-- **专利成就（3项）**
+- **[专利成就](https://www.iprdb.com/s?ds=all&dm=mix&p=&ps=10&s=score%21&q2=&m=none&fc=&dm=mix&s=score%21&cleantc=true&q=ap%3A%28%22%E6%9D%AD%E5%B7%9E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%22%29+AND+inv%3A%22%E6%AC%A7%E9%98%B3%E6%B4%81%22)（3项）**
   - [视频流消费区块链分析与应用](https://www.petterobam.cn/blog/2021/05/24/patent/) | [预览](file/patent-1.png)
   - [音乐与创作物联笔的分析与应用](https://www.petterobam.cn/blog/2022/10/27/patent-1/) | [预览](file/patent-2.png)
   - [一种自我调控的众包审核装置](https://www.petterobam.cn/blog/2022/11/28/patent-2/) | [预览](file/patent-3.png)
