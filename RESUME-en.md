@@ -1,82 +1,95 @@
 # Basic Information
 
-- **Name**: Ouyang Jie
-- **Contact**: 17764218703 / 1460300366@qq.com
-- **Blog**: [www.petterobam.cn](https://www.petterobam.cn)
-- **Github**: <https://github.com/petterobam>
-- **LinkedIn**: <https://www.linkedin.com/in/petterobam/>
-- **Address**: Hangzhou, China
+- **Name**: Ouyang Jie (欧阳洁)  
+- **Contact**: 17764218703 / 1460300366@qq.com  
+- **Blog**: [www.petterobam.cn](https://www.petterobam.cn)  
+- **Github**: <https://github.com/petterobam>  
+- **LinkedIn**: <https://www.linkedin.com/in/petterobam/>  
+- **Address**: Hangzhou, China  
 
-# Personal Summary
+# Summary  
 
-With over 7 years of experience in software development, specializing in backend and full-stack development. Currently seeking freelance opportunities to create more user value and establish long-term collaborations.
+Software developer with 8+ years of experience, specializing in backend and full-stack development.  
 
-# Personal Products
+# Education  
 
-> AI Programming Practices #Swift
+- **Wuhan University of Science and Technology**, Bachelor of Software Engineering, Sep 2012 - Jun 2016  
+- **Core Courses**: Data Structures, Linux Operating Systems, Java/Android, C/C#, Design Patterns, etc.  
+- **University Projects**: [View Details](UNIVERSITY-RESUME-zh.md)  
 
-1. [Z2Y E&M](https://github.com/petterobam/Z2y-Product/releases): Build everything from scratch (MAC)
-2. [Z2Y R&M](https://apps.apple.com/cn/app/z2y-reader-manager/id6478165076?mt=12): Construct your knowledge base from the ground up (MAC)
-3. [Z2Y AI](https://apps.apple.com/cn/app/z2y-ai-manager/id6479319882?mt=12): Your AI Butler: Local&Remote AI + Prompt Management (MAC)
-4. [Z2Y Water](https://apps.apple.com/cn/app/z2y-%E8%AF%B7%E5%96%9D%E6%B0%B4/id6479874840?mt=12): For a better self, please keep drinking water!!!（MAC&IOS）
-5. [Z2Y DMG](https://github.com/zero2you4tech/Z2Y-DMG): Tool to package apps into DMG format (MAC)
-6. Z2Y CMD、Z2Y Book4?、Z2Y Ask Change, etc:  [Zero2You Studio](https://github.com/zero2you4tech)
+# Work Experience  
 
-# Education
+## Lazada & Alibaba International, Lazada-P42 (Jun 2024 - Present)  
 
-- **Wuhan University of Technology**, Bachelor's in Software Engineering, 2012.9.1 - 2016.6.1
-  - Courses Covered: Data Structures, Linux Operating System, Java/Android, C/C#, Design Patterns, etc.
-  - View University Projects: [Go](UNIVERSITY-RESUME-en.md)
+Independently responsible for seller fulfillment product communication, technical iteration, reverse logistics operations, and serving as Technical PIC for team projects.  
 
-# Work Experience
+1. **FFR+ & ABC Project (Business & Tech Lead, PIC)**  
+  - Built Lazada’s new seller shipment metrics system and automated cancellation logic, later extended to Daraz’s five-country operations.  
+  - Improved shipment rate by 6% in pilot countries by year-end.  
+2. **Daraz-Lazada Integration Project (Domain PIC)**  
+  - Merged Daraz’s fulfillment codebase and CI/CD pipelines into Lazada’s system post-acquisition, unifying R&D processes and reducing costs.  
+3. **Indonesia Server Migration (Domain PIC)**  
+  - Migrated Indonesia tenant services to Singapore cloud for disaster recovery and resource optimization, ensuring seamless traffic redirection and dependency management.  
+4. **Galaxy Migration (AIDC logistics system replacement) & Order Blockage Resolution** - Contributor.  
 
-Served as a Senior Software Developer at NetEase Cloud Music, mainly responsible for the development of short videos, comment systems, and friend relationships, as well as multiple patent research and development.
+## Independent Development (Semi-Entrepreneurship, Oct 2023 - Apr 2024)  
 
-## NetEase Cloud Music, Senior Software Developer, 2020-2023
+**[Wuheyou Studio (Personal)](https://github.com/zero2you4tech)**: Leveraged AI to systematically design personal branding and software products.  
 
-- **Short Video Project**
-  - Responsible for the overall development of short videos.
-  - Designed the video publishing pipeline to ensure efficient and stable video uploading.
-  - Established cross-site distribution pipelines for widespread video dissemination and high availability.
-  - [View Short Video Project Details](https://www.petterobam.cn/blog/2021/01/01/video-ddd-think/)
+1. Learned to build products from scratch (e.g., Swift with zero prior experience).  
+2. Delivered cross-language projects with rapid iteration for performance and UX improvements.  
+3. Acted as both product manager and developer, prioritizing feasible solutions for value creation.  
 
-- **Comment System and Friend Relationships**
-  - Responsible for the development of the comment system and friend relationships.
-  - Implemented a series of optimization measures to improve system performance and user experience.
-  - Built a crowdsourcing system to fully automate the governance of comments, from the client-side to algorithms, then to crowdsourcing and operations, achieving automatic content filtering and optimization.
-  - The crowdsourcing system was later platformized by me and extended for governance of content in other product areas, serving as a crucial component in supporting the 100-million-streamlining safety review projects.
+> **AI-Driven Projects** (Swift from scratch):  
+0. [Z2Y Java Principles](https://apps.apple.com/cn/app/z2y-java-%E5%8E%9F%E7%90%86/id6504158005): Java learning app (macOS).  
+1. [Z2Y E&M](https://github.com/petterobam/Z2y-Product/releases): Customizable editor (macOS).  
+2. [Z2Y R&M](https://apps.apple.com/cn/app/z2y-reader-manager/id6478165076): Knowledge management tool (macOS).  
+3. [Z2Y AI](https://apps.apple.com/cn/app/z2y-ai-manager/id6479319882): Local/remote AI & prompt manager (macOS).  
+4. [Z2Y Water](https://apps.apple.com/cn/app/z2y-%E8%AF%B7%E5%96%9D%E6%B0%B4/id6479874840): Hydration reminder (macOS & iOS).  
+5. [Z2Y DMG](https://github.com/zero2you4tech/Z2Y-DMG): DMG packaging tool (macOS).  
+6. Other projects: [Z2Y CMD, Z2Y Book4?, Z2Y Tianwen](https://github.com/zero2you4tech).  
 
-- **Led S-level Projects (Up to 20 People)**
-  - Successfully led and completed S-level projects with a team size of up to 20 people.
-  - Major activities include "Star-Level Comments to the Moon" and "NetEase Cloud Music Annual Report".
+## NetEase Cloud Music, Senior Software Engineer (Jul 2020 - Aug 2023)  
 
-- **[Patent Achievements](https://www.iprdb.com/s?ds=all&dm=mix&p=&ps=10&s=score%21&q2=&m=none&fc=&dm=mix&s=score%21&cleantc=true&q=ap%3A%28%22%E6%9D%AD%E5%B7%9E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%22%29+AND+inv%3A%22%E6%AC%A7%E9%98%B3%E6%B4%81%22) (3 Items)**
-  - [Video Stream Consumption Blockchain Analysis and Application](https://www.petterobam.cn/blog/2021/05/24/patent/) | [Preview](file/patent-1.png)
-  - [Music and Creation IoT Pen Analysis and Application](https://www.petterobam.cn/blog/2022/10/27/patent-1/) | [Preview](file/patent-2.png)
-  - [A Self-Regulating Crowdsourcing Audit Device](https://www.petterobam.cn/blog/2022/11/28/patent-2/) | [Preview](file/patent-3.png)
+Led development for short video, comment system, social features, and patented innovations.  
 
-## Previous Work Experience
+- **Short Video Platform**  
+  - Owned end-to-end development of the short video feature.  
+  - Designed video publishing pipeline and distribution architecture for high availability.  
+  - [Details](https://www.petterobam.cn/blog/2021/01/01/video-ddd-think/).  
 
-- Brief Description: 
-  - Served as a Software Engineer at Baidu, responsible for financial reports, transactions, and computing engine systems (2018-2020); 
-  - Served as a Software Engineer and Project Manager at Wuhan Shengyi Technology Development Co., Ltd., responsible for the order system (2016-2018).
-- [View Previous Work Details](RESUME-P1-zh.md)
+- **Comment System & Social Graph**  
+  - Optimized performance and built an automated crowdsourcing system for content moderation, later expanded to support 100M+ user safety projects.  
 
-# Skills
+- **S-Tier Projects (Teams up to 20)**  
+  - Led "Starred Comments to Moon Feature" and "Annual Music Report".  
 
-- **Programming Languages**: Java, Swift, C#, Python
-- **Frameworks**: Spring, MyBatis, Elasticsearch
-- **Databases**: MySQL, Oracle
-- **Tools**: Git, Maven, Docker
-- **AI**: Ollama, Stable Diffusion, ChatGPT, Prompt Skill, etc.
+- **Patents**  
+  1. [Blockchain Analysis for Video Stream Consumption](https://www.petterobam.cn/blog/2021/05/24/patent/) | [Preview](file/patent-1.png)  
+  2. [IoT Music Creation Pen](https://www.petterobam.cn/blog/2022/10/27/patent-1/) | [Preview](file/patent-2.png)  
+  3. [Self-Regulating Crowdsourcing Moderation System](https://www.petterobam.cn/blog/2022/11/28/patent-2/) | [Preview](file/patent-3.png)  
 
-# Additional Information
+## Earlier Experience  
 
-- Open-source enthusiast (Github Star 1k+)
-- Performed stand-up comedy at company annual meetings and events.
-- Organized teams to participate in group coding competitions.
+- **Baidu** (Software Engineer, Financial & Compute Engines, Apr 2018 - Jun 2020).  
+- **Shengyi Tech** (Software Engineer/PM, Order Systems, Jun 2016 - Aug 2018).  
+- [Full History](RESUME-P1-zh.md).  
 
-# Interests and Hobbies
+# Skills  
 
-- **Open-source Contributions**: Passionate about open-source projects, actively contributing code on Github.
-- **Public Speaking and Performing**: Enjoy public speaking and performing at company or community events.
+- **Languages**: Java, Swift, C#, Python  
+- **Frameworks**: Spring, MyBatis, Elasticsearch  
+- **Databases**: MySQL, Oracle  
+- **Tools**: Git, Maven, Docker  
+- **AI**: Ollama, Stable Diffusion, ChatGPT, Prompt Engineering  
+
+# Additional  
+
+- Open-source contributor (1k+ Github Stars).  
+- Performed stand-up comedy at company events.  
+- Organized team coding competitions.  
+
+# Interests  
+
+- **Open Source**: Active Github contributor.  
+- **Public Speaking**: Enjoy speaking and performing at tech/community events.  
