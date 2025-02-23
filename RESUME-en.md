@@ -59,6 +59,7 @@ Led development for short video, comment system, social features, and patented i
   - [Details](https://www.petterobam.cn/blog/2021/01/01/video-ddd-think/).  
 
 - **Comment System & Social Graph**  
+  - Optimized caching strategies (pagination for social graph, L0-L3 comment loading)  
   - Optimized performance and built an automated crowdsourcing system for content moderation, later expanded to support 100M+ user safety projects.  
 
 - **S-Tier Projects (Teams up to 20)**  

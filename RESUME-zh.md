@@ -38,7 +38,7 @@
 
 [无何有工作室(个人)](https://github.com/zero2you4tech)，借助 AI 能力，尝试系统性的设计个人品牌和生成软件产品。
 
-1. 学习和实践了如何从零开始构建和落实自己的想法，哪怕 Swift 这种语言都不会。
+1. 学习和实践了如何从零开始构建和落实自己的想法，选择 Swift 作为实践语言。
 2. 首次跨语言和技术产出作品，获得快速学习和转化能力，并且通过不断迭代改进作品性能和体验。
 3. 更多产品思考，自己就是产品+技术，快速排除、挑选、落地，在可实现范围内实现产品价值和丰富。
 
@@ -52,7 +52,6 @@
 5. [Z2Y DMG](https://github.com/zero2you4tech/Z2Y-DMG): 打包 App 成 DMG 工具（MAC）
 6. Z2Y CMD、Z2Y Book4?、Z2Y 天问等参见： [https://github.com/zero2you4tech](https://github.com/zero2you4tech)
 
-
 ## 网易云音乐, 高级软件开发工程师, 2020.7-2023.8
 
 在网易云音乐担任高级软件开发工程师，主要负责短视频、评论系统和好友关系的开发，以及多项专利研发。
@@ -65,7 +64,7 @@
 
 - **评论系统和好友关系**
   - 负责评论系统和好友关系的开发。
-  - 实施了一系列优化措施以提高系统性能和用户体验。
+  - 实施了一系列优化措施以提高系统性能和用户体验（好友关系缓存翻页存储、评论L0～3缓存加载优化等）。
   - 构建了一个众包系统，用于全自动化地治理评论，从C端到算法，再到众包和运营，实现了自动化内容过滤和优化。
   - 该众包系统后来被我平台化，并扩展用于其他产品内容的治理，支撑 1 亿节流安审项目中的重要一环。
 
@@ -74,11 +73,11 @@
   - 主要活动包括"星级评论上月亮"和"网易云音乐年度报告"。
 
 - **[专利成就](https://www.iprdb.com/s?ds=all&dm=mix&p=&ps=10&s=score%21&q2=&m=none&fc=&dm=mix&s=score%21&cleantc=true&q=ap%3A%28%22%E6%9D%AD%E5%B7%9E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%22%29+AND+inv%3A%22%E6%AC%A7%E9%98%B3%E6%B4%81%22)（3项）**
-  - [视频流消费区块链分析与应用](https://www.petterobam.cn/blog/2021/05/24/patent/) | [预览](file/patent-1.png)
-  - [音乐与创作物联笔的分析与应用](https://www.petterobam.cn/blog/2022/10/27/patent-1/) | [预览](file/patent-2.png)
-  - [一种自我调控的众包审核装置](https://www.petterobam.cn/blog/2022/11/28/patent-2/) | [预览](file/patent-3.png)
+  - [视频流消费区块链分析与应用](https://www.petterobam.cn/blog/2021/05/24/patent/) - [预览](file/patent-1.png)
+  - [音乐与创作物联笔的分析与应用](https://www.petterobam.cn/blog/2022/10/27/patent-1/) - [预览](file/patent-2.png)
+  - [一种自我调控的众包审核装置](https://www.petterobam.cn/blog/2022/11/28/patent-2/) - [预览](file/patent-3.png)
 
-## 过往工作经验
+## 早期工作经验
 
 - 简要描述：
   - 在百度担任软件工程师，负责财报、交易和计算引擎系统（2018.4-2020.6）；
