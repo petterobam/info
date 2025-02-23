@@ -72,7 +72,7 @@ Led development for short video, comment system, social features, and patented i
 
 ## Earlier Experience  
 
-- **Baidu** (Software Engineer, Financial & Compute Engines, Apr 2018 - Jun 2020).  
+- **Baidu** (Software Engineer, Financial & Compute Engines, Otc 2018 - Jun 2020).  
 - **Shengyi Tech** (Software Engineer/PM, Order Systems, Jun 2016 - Aug 2018).  
 - [Full History](RESUME-P1-zh.md).  
 
