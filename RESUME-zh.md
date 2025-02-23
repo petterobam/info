@@ -39,18 +39,16 @@
 [无何有工作室(个人)](https://github.com/zero2you4tech)，借助 AI 能力，尝试系统性的设计个人品牌和生成软件产品。
 
 1. 学习和实践了如何从零开始构建和落实自己的想法，选择 Swift 作为实践语言。
-2. 首次跨语言和技术产出作品，获得快速学习和转化能力，并且通过不断迭代改进作品性能和体验。
-3. 更多产品思考，自己就是产品+技术，快速排除、挑选、落地，在可实现范围内实现产品价值和丰富。
+2. 跨语言和技术产出作品，获得快速学习和转化能力，并且通过不断迭代改进作品性能和体验。
+3. 更多产品思考，自己就是产品+技术，快速排除、挑选、落地，在可实现范围实现丰富产品。
 
 > AI 编程实践 #Swift(0基础)
 
-0. [Z2Y Java 原理](https://apps.apple.com/cn/app/z2y-java-%E5%8E%9F%E7%90%86/id6504158005?mt=12): Java 知识学习软件（MAC）
-1. [Z2Y E&M](https://github.com/petterobam/Z2y-Product/releases)（编辑器）: 从零开始构建你的一切（MAC）
-2. [Z2Y R&M](https://apps.apple.com/cn/app/z2y-reader-manager/id6478165076?mt=12)（知识管理）: 从零开始搭建你的知识库（MAC）
-3. [Z2Y AI](https://apps.apple.com/cn/app/z2y-ai-manager/id6479319882?mt=12): 你的 AI 管家：本地或远程 AI + Prompt 管理（MAC）
-4. [Z2Y Water](https://apps.apple.com/cn/app/z2y-%E8%AF%B7%E5%96%9D%E6%B0%B4/id6479874840?mt=12): 为了更好的自己，请多喝水！！！（MAC&IOS）
-5. [Z2Y DMG](https://github.com/zero2you4tech/Z2Y-DMG): 打包 App 成 DMG 工具（MAC）
-6. Z2Y CMD、Z2Y Book4?、Z2Y 天问等参见： [https://github.com/zero2you4tech](https://github.com/zero2you4tech)
+1. [Z2Y Java 原理](https://apps.apple.com/cn/app/z2y-java-%E5%8E%9F%E7%90%86/id6504158005?mt=12): Java 知识学习软件（MAC）
+2. [Z2Y E&M](https://github.com/petterobam/Z2y-Product/releases)（编辑器）: 从零开始构建你的一切（MAC）
+3. [Z2Y R&M](https://apps.apple.com/cn/app/z2y-reader-manager/id6478165076?mt=12)（知识管理）: 从零开始搭建你的知识库（MAC）
+4. [Z2Y AI](https://apps.apple.com/cn/app/z2y-ai-manager/id6479319882?mt=12): 你的 AI 管家：本地或远程 AI + Prompt 管理（MAC）
+5. 更多软件请参见： [https://github.com/zero2you4tech](https://github.com/zero2you4tech)
 
 ## 网易云音乐, 高级软件开发工程师, 2020.7-2023.8
 
