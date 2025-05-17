@@ -24,13 +24,17 @@ Software developer with 8+ years of experience, specializing in backend and full
 Independently responsible for seller fulfillment product communication, technical iteration, reverse logistics operations, and serving as Technical PIC for team projects.  
 
 1. **FFR+ & ABC Project (Business & Tech Lead, PIC)**  
-  - Built Lazada’s new seller shipment metrics system and automated cancellation logic, later extended to Daraz’s five-country operations.  
-  - Improved shipment rate by 6% in pilot countries by year-end.  
+  - Built Lazada's new seller shipment metrics system and automated cancellation logic, later extended to Daraz's five-country operations.  
+  - Improved shipment rate by 6% in pilot countries by year-end.
+  - Recovered approximately $680,000+ USD in GMV per month by May during full pilot phase.
 2. **Daraz-Lazada Integration Project (Domain PIC)**  
-  - Merged Daraz’s fulfillment codebase and CI/CD pipelines into Lazada’s system post-acquisition, unifying R&D processes and reducing costs.  
+  - Merged Daraz's fulfillment codebase and CI/CD pipelines into Lazada's system post-acquisition, unifying R&D processes and reducing costs.  
 3. **Indonesia Server Migration (Domain PIC)**  
   - Migrated Indonesia tenant services to Singapore cloud for disaster recovery and resource optimization, ensuring seamless traffic redirection and dependency management.  
-4. **Galaxy Migration (AIDC logistics system replacement) & Order Blockage Resolution** - Contributor.  
+4. **Fulfillment AI Development and Applications**  
+  - Developed intelligent agents for automated order processing and AI-powered customer support.
+  - Created an intelligent agent for automatic unit test generation to improve efficiency.
+  - Implemented AI capabilities in daily work including AI-assisted coding, full-stack development practices, and MCP development applications.
 
 ## Independent Development (Semi-Entrepreneurship, Oct 2023 - Apr 2024)  
 
@@ -93,4 +97,4 @@ Led development for short video, comment system, social features, and patented i
 # Interests  
 
 - **Open Source**: Active Github contributor.  
-- **Public Speaking**: Enjoy speaking and performing at tech/community events.  
+- **Public Speaking**: Enjoy speaking and performing at tech/community events.
