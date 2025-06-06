@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欧阳洁 - 远程工作简历优化</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="https://gw.alipayobjects.com/os/lib/echarts/5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #1e40af;
+            --accent-color: #60a5fa;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --card-bg: #ffffff;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .section-transition {
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transition: width 1s ease-in-out;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 24px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 4px solid white;
+        }
+        
+        .skill-pill {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-pill:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .mouse-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(59, 130, 246, 0.2);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .card-flip {
+            perspective: 1000px;
+            height: 300px;
+        }
+        
+        .card-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .card-flip:hover .card-flip-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .card-flip-front, .card-flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 0.5rem;
+        }
+        
+        .card-flip-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Mouse Follower -->
+    <div class="mouse-follower hidden md:block"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="#hero" class="text-xl font-bold text-blue-600">欧阳洁 <span class="text-gray-600">| 全栈工程师</span></a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">关于我</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">技能</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-blue-600">工作经验</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">项目</a>
+                    <a href="#remote" class="nav-link text-gray-700 hover:text-blue-600">远程工作</a>
+                    <a href="#action" class="nav-link text-gray-700 hover:text-blue-600">行动计划</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600">联系我</a>
+                </div>
+                <button class="md:hidden text-gray-700 focus:outline-none" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="#about" class="text-gray-700 hover:text-blue-600">关于我</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600">技能</a>
+                    <a href="#experience" class="text-gray-700 hover:text-blue-600">工作经验</a>
+                    <a href="#projects" class="text-gray-700 hover:text-blue-600">项目</a>
+                    <a href="#remote" class="text-gray-700 hover:text-blue-600">远程工作</a>
+                    <a href="#action" class="text-gray-700 hover:text-blue-600">行动计划</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600">联系我</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden py-20 mt-16">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20"></div>
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('file/banner.jpeg')] bg-cover bg-center opacity-10"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                        <span class="block">欧阳洁</span>
+                        <span class="gradient-text">全栈软件工程师</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8">专注于远程工作环境下的高效软件开发</p>
+                    <div class="mb-8">
+                        <p class="text-gray-700 text-lg leading-relaxed">
+                            拥有8+年软件开发经验，在远程和混合工作环境中成功领导过多个跨国团队项目，具备出色的自主工作能力和时间管理技能。擅长利用AI技术提升开发效率，并有创业经验和开源贡献。
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center">
+                            <i class="fas fa-paper-plane mr-2"></i> 联系我
+                        </a>
+                        <a href="#remote" class="bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center">
+                            <i class="fas fa-laptop-house mr-2"></i> 远程工作能力
+                        </a>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 p-1 shadow-xl float-animation">
+                            <div class="w-full h-full rounded-full bg-white p-3">
+                                <div class="w-full h-full rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 flex items-center justify-center overflow-hidden">
+                                    <img src="file/idphoto.jpeg" alt="欧阳洁" class="w-full h-full object-cover rounded-full">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-white rounded-full p-3 shadow-lg">
+                            <div class="bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-white text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-md card-hover">
+                    <div class="text-blue-600 text-4xl mb-2">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">8+</h3>
+                    <p class="text-gray-600">年软件开发经验</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md card-hover">
+                    <div class="text-blue-600 text-4xl mb-2">
+                        <i class="fas fa-laptop-house"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">3+</h3>
+                    <p class="text-gray-600">年远程工作经验</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md card-hover">
+                    <div class="text-blue-600 text-4xl mb-2">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">20+</h3>
+                    <p class="text-gray-600">人团队管理经验</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md card-hover">
+                    <div class="text-blue-600 text-4xl mb-2">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">3</h3>
+                    <p class="text-gray-600">项专利成就</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-blue-600 flex flex-col items-center">
+                <span class="mb-2">向下滚动</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">关于我</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-lg relative">
+                        <div class="absolute -top-4 -left-4 bg-blue-600 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-user text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-6">个人简介</h3>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            我是一名拥有8+年软件开发经验的全栈工程师，专注于高效、可扩展的软件解决方案开发。在远程和混合工作环境中成功领导过多个跨国团队项目，具备出色的自主工作能力和时间管理技能。
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            我擅长利用AI技术提升开发效率，并有创业经验和开源贡献。我正在寻求远程工作机会，希望能运用我的技术多样性、创新思维和项目管理经验为团队创造价值。
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mt-8">
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <span>中国杭州 (可远程)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-graduation-cap text-blue-600"></i>
+                                </div>
+                                <span>软件工程学士</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-language text-blue-600"></i>
+                                </div>
+                                <span>中文 (母语), 英语 (流利)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-clock text-blue-600"></i>
+                                </div>
+                                <span>灵活工作时间</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <a href="https://github.com/petterobam" target="_blank" class="flex items-center justify-center bg-gray-800 hover:bg-gray-900 text-white py-3 px-4 rounded-lg transition-all">
+                            <i class="fab fa-github mr-2"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/petterobam/" target="_blank" class="flex items-center justify-center bg-blue-700 hover:bg-blue-800 text-white py-3 px-4 rounded-lg transition-all">
+                            <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                        </a>
+                        <a href="https://www.petterobam.cn" target="_blank" class="flex items-center justify-center bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-lg transition-all">
+                            <i class="fas fa-globe mr-2"></i> 个人网站
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">我的优势</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-semibold">远程协作能力</h4>
+                                    <span class="text-sm text-blue-600">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="progress-bar" data-width="95" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-semibold">自主工作能力</h4>
+                                    <span class="text-sm text-blue-600">98%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="progress-bar" data-width="98" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-semibold">技术多样性</h4>
+                                    <span class="text-sm text-blue-600">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="progress-bar" data-width="90" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-semibold">项目管理</h4>
+                                    <span class="text-sm text-blue-600">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="progress-bar" data-width="85" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-semibold">AI技术应用</h4>
+                                    <span class="text-sm text-blue-600">92%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="progress-bar" data-width="92" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">核心价值</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">高效交付</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">远程协作</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">创新思维</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">自主驱动</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">终身学习</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">跨文化沟通</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8">
+                <div class="card bg-white p-8 shadow-lg">
+                    <h4 class="font-bold text-xl mb-4 text-blue-600">我的远程工作理念</h4>
+                    <p class="text-gray-700">
+                        我相信高效的远程工作建立在自律、清晰沟通和结果导向的基础上。通过合适的工具和流程，远程团队可以达到甚至超越传统办公室的协作效率。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">技能与专长</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-600">专为远程工作环境优化的技能组合</p>
+            </div>
+
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-laptop-code text-blue-600 mr-3"></i>
+                        技术技能
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-semibold mb-4">编程语言</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Java</span>
+                                    <span class="ml-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">高级</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>Swift</span>
+                                    <span class="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">中级</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>C#</span>
+                                    <span class="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">中级</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>Python</span>
+                                    <span class="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">中级</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-4">Web开发</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Spring Boot</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>MyBatis</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>RESTful API</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>微服务架构</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-4">数据库</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>MySQL</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Oracle</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>Elasticsearch</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>Redis</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-4">DevOps & 云服务</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Git</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Maven</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>Docker</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>CI/CD</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>阿里云</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                                    <span>AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-4">AI开发</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Ollama</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Stable Diffusion</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>LLM应用开发</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Prompt工程</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <div class="flex items-center mb-4">
+                            <div class="flex mr-8">
+                                <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                <span class="text-sm">高级</span>
+                            </div>
+                            <div class="flex mr-8">
+                                <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                <span class="text-sm">中级</span>
+                            </div>
+                            <div class="flex">
+                                <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                                <span class="text-sm">初级</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-users text-blue-600 mr-3"></i>
+                        远程工作技能
+                    </h3>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="font-semibold mb-4">协作工具</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>JIRA</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Confluence</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Slack</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Zoom</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>Microsoft Teams</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-4">项目管理</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Agile/Scrum</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>Kanban</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>远程团队协调</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-4">沟通能力</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>技术文档编写</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>异步沟通</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>远程演示</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-4">自我管理</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>时间管理</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>任务优先级排序</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>自主工作能力</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold mb-4">跨文化协作</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                    <span>跨时区团队协作</span>
+                                </div>
+                                <div class="skill-pill bg-white px-4 py-2 rounded-lg shadow-md flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                                    <span>国际化项目经验</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mt-2">
+                <div id="skills-chart" class="w-full h-80"></div>
+            </div>
+        </div>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // 初始化技能分布图表
+                var skillsChart = echarts.init(document.getElementById('skills-chart'));
+                
+                var option = {
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                    legend: {
+                        top: '5%',
+                        left: 'center'
+                    },
+                    series: [
+                        {
+                            name: '技能分布',
+                            type: 'pie',
+                            radius: ['40%', '70%'],
+                            avoidLabelOverlap: false,
+                            itemStyle: {
+                                borderRadius: 10,
+                                borderColor: '#fff',
+                                borderWidth: 2
+                            },
+                            label: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                label: {
+                                    show: true,
+                                    fontSize: '18',
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            labelLine: {
+                                show: false
+                            },
+                            data: [
+                                { value: 35, name: '后端开发' },
+                                { value: 20, name: '全栈开发' },
+                                { value: 15, name: 'AI技术' },
+                                { value: 15, name: '项目管理' },
+                                { value: 15, name: '远程协作' }
+                            ]
+                        }
+                    ]
+                };
+                
+                skillsChart.setOption(option);
+                
+                // 响应窗口大小变化
+                window.addEventListener('resize', function() {
+                    skillsChart.resize();
+                });
+            });
+        </script>
+    </section>
+    
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">工作经验</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-600">专注于远程和混合工作环境的职业经历</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200"></div>
+                
+                <!-- Lazada & 阿里国际 -->
+                <div class="relative mb-16">
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 -mt-3">
+                        <div class="w-6 h-6 rounded-full bg-blue-600 border-4 border-white shadow"></div>
+                    </div>
+                    
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-8 md:text-right mb-8 md:mb-0">
+                            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all card-hover">
+                                <h3 class="text-xl font-bold text-blue-600">Lazada & 阿里国际</h3>
+                                <p class="text-gray-500 mb-2">2024.6 - 至今</p>
+                                <h4 class="font-semibold mb-2">远程/混合工作环境下的技术领导者</h4>
+                                <p class="text-gray-700 mb-4">
+                                    在跨国团队中独立负责卖家履约产品的技术迭代和沟通，管理分布式团队成员，通过有效的远程协作工具和方法确保项目顺利交付。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="bg-blue-50 rounded-xl p-6 shadow-lg">
+                                <h4 class="font-semibold mb-4">主要成就</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-2">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">
+                                            <span class="font-medium">FFR+&ABC项目</span>：作为业务技术负责人，通过远程协作平台管理开发流程，实现发货准时率提升6%，每月挽回GMV 68W+美元
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-2">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">
+                                            <span class="font-medium">Daraz融合Lazada项目</span>：协调分布在不同时区的团队成员，通过异步沟通和定期视频会议，成功整合五国业务代码，减少30%重复开发工作
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-2">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">
+                                            <span class="font-medium">印尼机房应用迁移项目</span>：远程管理跨国技术团队，设计并实施无感知切流方案，实现系统零宕机迁移，提升服务可用性达99.9%
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-2">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">
+                                            <span class="font-medium">履约侧智能体开发</span>：利用AI技术自动化处理工单，减少50%人工干预时间，提升团队远程工作效率
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 无何有工作室 -->
+                <div class="relative mb-16">
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 -mt-3">
+                        <div class="w-6 h-6 rounded-full bg-blue-600 border-4 border-white shadow"></div>
+                    </div>
+                    
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pl-8 mb-8 order-1 md:order-2">
+                            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all card-hover">
+                                <h3 class="text-xl font-bold text-blue-600">无何有工作室</h3>
+                                <p class="text-gray-500 mb-2">2023.10 - 2024.4</p>
+                                <h4 class="font-semibold mb-2">全职远程独立开发者</h4>
+                                <p class="text-gray-700 mb-4">
+                                    作为独立开发者，完全在远程环境下工作，自主管理项目进度和产品开发，展示了出色的自我驱动能力和时间管理技能。
+                                </p>
+                                <div class="mt-4 grid grid-cols-2 gap-2">
+                                    <a href="https://apps.apple.com/cn/app/z2y-java-%E5%8E%9F%E7%90%86/id6504158005?mt=12" target="_blank" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                        <i class="fab fa-apple mr-1"></i> Z2Y Java 原理
+                                    </a>
+                                    <a href="https://github.com/petterobam/Z2y-Product/releases" target="_blank" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                        <i class="fas fa-edit mr-1"></i> Z2Y E&M
+                                    </a>
+                                    <a href="https://apps.apple.com/cn/app/z2y-reader-manager/id6478165076?mt=12" target="_blank" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                        <i class="fas fa-book mr-1"></i> Z2Y R&M
+                                    </a>
+                                    <a href="https://apps.apple.com/cn/app/z2y-ai-manager/id6479319882?mt=12" target="_blank" class="text-blue-600 hover:text-blue-800 flex items-center">
+                                        <i class="fas fa-robot mr-1"></i> Z2Y AI
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pr-8 md:text-right mb-8 md:mb-0 order-2 md:order-1">
+                            <div class="bg-blue-50 rounded-xl p-6 shadow-lg">
+                                <h4 class="font-semibold mb-4">主要成就</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start md:flex-row-reverse">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 md:ml-2 mr-2 md:mr-0">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700 md:text-right">
+                                            从零开始学习Swift语言，在6个月内独立开发并发布4款macOS应用，展示快速学习和适应新技术的能力
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start md:flex-row-reverse">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 md:ml-2 mr-2 md:mr-0">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700 md:text-right">
+                                            建立个人开发工作流程，包括需求分析、设计、开发、测试和发布，100%自主完成所有环节
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start md:flex-row-reverse">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 md:ml-2 mr-2 md:mr-0">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700 md:text-right">
+                                            利用AI辅助编程工具提升开发效率，将产品从概念到上线的时间缩短40%
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start md:flex-row-reverse">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 md:ml-2 mr-2 md:mr-0">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700 md:text-right">
+                                            通过GitHub和个人博客分享开发经验，建立技术社区影响力，获得1k+Star
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 网易云音乐 -->
+                <div class="relative mb-16">
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 -mt-3">
+                        <div class="w-6 h-6 rounded-full bg-blue-600 border-4 border-white shadow"></div>
+                    </div>
+                    
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-8 md:text-right mb-8 md:mb-0">
+                            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all card-hover">
+                                <h3 class="text-xl font-bold text-blue-600">网易云音乐</h3>
+                                <p class="text-gray-500 mb-2">2020.7 - 2023.8</p>
+                                <h4 class="font-semibold mb-2">高级软件开发工程师</h4>
+                                <p class="text-gray-700 mb-4">
+                                    在混合工作模式下，负责核心系统开发，通过远程协作工具和敏捷开发方法，确保高质量代码交付和团队协作。
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">短视频</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">评论系统</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">好友关系</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">专利研发</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="bg-blue-50 rounded-xl p-6 shadow-lg">
+                                <h4 class="font-semibold mb-4">主要成就</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-2">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">
+                                            <span class="font-medium">短视频项目</span>：设计并实现视频发布链路，支持每日10万+视频上传，系统可用性达99.95%，通过远程代码审查和异步沟通确保代码质量
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-2">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">
+                                            <span class="font-medium">评论系统优化</span>：重构评论缓存加载逻辑，减少80%加载时间，提升用户体验
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-2">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">
+                                            <span class="font-medium">众包系统开发</span>：设计并实现自动化内容治理系统，减少90%人工审核工作，支持1亿节流安审项目
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-2">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">
+                                            <span class="font-medium">S级项目管理</span>：远程协调20人团队，使用敏捷开发方法和协作工具确保项目按时交付
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-2">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700">
+                                            <span class="font-medium">专利成就</span>：获得3项专利，包括视频流消费区块链分析与应用、音乐与创作物联笔的分析与应用、一种自我调控的众包审核装置
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 早期工作经验 -->
+                <div class="relative">
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 -mt-3">
+                        <div class="w-6 h-6 rounded-full bg-blue-600 border-4 border-white shadow"></div>
+                    </div>
+                    
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pl-8 mb-8 order-1 md:order-2">
+                            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all card-hover">
+                                <h3 class="text-xl font-bold text-blue-600">早期工作经验</h3>
+                                <p class="text-gray-500 mb-2">2016.6 - 2020.6</p>
+                                <h4 class="font-semibold mb-2">软件工程师 & 项目经理</h4>
+                                <p class="text-gray-700 mb-4">
+                                    在百度和武汉胜意科技积累了丰富的软件开发和项目管理经验，为后续的远程工作能力奠定了坚实基础。
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">百度 (2018.10-2020.6)</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">武汉胜意科技 (2016.6-2018.8)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pr-8 md:text-right mb-8 md:mb-0 order-2 md:order-1">
+                            <div class="bg-blue-50 rounded-xl p-6 shadow-lg">
+                                <h4 class="font-semibold mb-4">主要职责</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start md:flex-row-reverse">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 md:ml-2 mr-2 md:mr-0">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700 md:text-right">
+                                            <span class="font-medium">百度</span>：负责财报、交易和计算引擎系统开发，参与分布式系统设计和实现
+                                        </p>
+                                    </li>
+                                    <li class="flex items-start md:flex-row-reverse">
+                                        <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 md:ml-2 mr-2 md:mr-0">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        <p class="text-gray-700 md:text-right">
+                                            <span class="font-medium">武汉胜意科技</span>：负责订单系统开发和维护，管理小型开发团队，协调项目进度
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="remote" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">远程工作能力</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-600">为什么我是远程工作的理想人选</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-16">
+                <div class="pb-4 rounded-xl" style="background-color: #103458;">
+                    <img src="https://holistiquetraining.com/storage/top-skills-in-remote-work.png" alt="远程工作技能" class="rounded-xl shadow-lg w-full">
+                </div>
+                
+                <div style="grid-column-start: 2; grid-column-end: 4;">
+                    <h3 class="text-2xl font-bold mb-6">我的远程工作优势</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">自主时间管理</h4>
+                                <p class="text-gray-700">
+                                    在无何有工作室期间，完全远程工作环境下自主管理项目进度和产品开发，展示了出色的自我驱动能力和时间管理技能，100%按时完成所有项目里程碑。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-comments text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">高效沟通协作</h4>
+                                <p class="text-gray-700">
+                                    在Lazada&阿里国际期间，协调分布在不同时区的团队成员，通过每日异步沟通和定期视频会议，成功整合五国业务代码，展示了出色的远程沟通和协作能力。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-tasks text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">结果导向工作方式</h4>
+                                <p class="text-gray-700">
+                                    在网易云音乐期间，通过远程代码审查和异步沟通确保代码质量，系统可用性达99.95%，展示了在远程环境下依然保持高标准的结果导向工作方式。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-tools text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">远程工具精通</h4>
+                                <p class="text-gray-700">
+                                    精通JIRA、Confluence、Slack、Zoom等远程协作工具，能够有效利用这些工具进行项目管理、文档协作和团队沟通，确保远程工作的高效进行。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-blue-50 rounded-xl p-8 shadow-lg mb-16">
+                <h3 class="text-2xl font-bold mb-6 text-center">远程工作经验与成果</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="flex items-center justify-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-globe text-blue-600 text-2xl"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-semibold text-center mb-2">跨国团队协作</h4>
+                        <p class="text-gray-700 text-center">
+                            成功管理分布在东南亚五国的开发团队，克服时区差异和文化差异，确保项目顺利交付。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="flex items-center justify-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-blue-600 text-2xl"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-semibold text-center mb-2">独立远程开发</h4>
+                        <p class="text-gray-700 text-center">
+                            在无何有工作室期间，完全远程环境下独立开发并发布4款macOS应用，展示自主工作能力。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="flex items-center justify-center mb-4">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-project-diagram text-blue-600 text-2xl"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-semibold text-center mb-2">远程项目管理</h4>
+                        <p class="text-gray-700 text-center">
+                            在网易云音乐期间，远程协调20人团队，使用敏捷开发方法确保S级项目按时交付。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">我的远程工作理念</h3>
+                    <div class="bg-white rounded-xl p-8 shadow-lg border-l-4 border-blue-600">
+                        <p class="text-gray-700 italic mb-6">
+                            "我相信高效的远程工作建立在自律、清晰沟通和结果导向的基础上。通过合适的工具和流程，远程团队可以达到甚至超越传统办公室的协作效率。"
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-3">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">
+                                    <span class="font-medium">自律与责任</span>：在没有直接监督的情况下，保持高效工作节奏和自我驱动力
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-3">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">
+                                    <span class="font-medium">清晰沟通</span>：通过精确的书面沟通和有效的异步协作，确保团队成员理解目标和期望
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-3">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">
+                                    <span class="font-medium">结果导向</span>：关注产出和成果，而不是工作时长或地点
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-3">
+                                    <i class="fas fa-check text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">
+                                    <span class="font-medium">持续学习</span>：不断探索和采用新的工具和方法，提升远程工作效率
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">远程工作市场趋势</h3>
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div id="remote-trends-chart" class="w-full h-64 mb-6"></div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-green-600 flex items-center justify-center mt-1 mr-3">
+                                    <i class="fas fa-arrow-up text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">
+                                    <span class="font-medium">增长趋势</span>：到2030年，远程数字工作预计将增长约25%，达到9000多万个岗位
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center mt-1 mr-3">
+                                    <i class="fas fa-code text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">
+                                    <span class="font-medium">技能需求</span>：云计算、DevOps和AI/ML是2025年远程工作中最受欢迎的技能
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-purple-600 flex items-center justify-center mt-1 mr-3">
+                                    <i class="fas fa-dollar-sign text-white text-xs"></i>
+                                </div>
+                                <p class="text-gray-700">
+                                    <span class="font-medium">薪资趋势</span>：2025年远程软件开发者平均年薪约为$111,845（美国）
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // 初始化远程工作趋势图表
+                var remoteTrendsChart = echarts.init(document.getElementById('remote-trends-chart'));
+                
+                var option = {
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['远程工作岗位占比', '混合工作岗位占比', '现场工作岗位占比']
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030']
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value}%'
+                        }
+                    },
+                    series: [
+                        {
+                            name: '远程工作岗位占比',
+                            type: 'line',
+                            data: [10, 13, 16, 19, 22, 25, 28, 30],
+                            smooth: true,
+                            lineStyle: {
+                                width: 3,
+                                color: '#3b82f6'
+                            },
+                            areaStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    {offset: 0, color: 'rgba(59, 130, 246, 0.5)'},
+                                    {offset: 1, color: 'rgba(59, 130, 246, 0.1)'}
+                                ])
+                            }
+                        },
+                        {
+                            name: '混合工作岗位占比',
+                            type: 'line',
+                            data: [45, 48, 53, 55, 57, 58, 59, 60],
+                            smooth: true,
+                            lineStyle: {
+                                width: 3,
+                                color: '#8b5cf6'
+                            },
+                            areaStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    {offset: 0, color: 'rgba(139, 92, 246, 0.5)'},
+                                    {offset: 1, color: 'rgba(139, 92, 246, 0.1)'}
+                                ])
+                            }
+                        },
+                        {
+                            name: '现场工作岗位占比',
+                            type: 'line',
+                            data: [45, 39, 31, 26, 21, 17, 13, 10],
+                            smooth: true,
+                            lineStyle: {
+                                width: 3,
+                                color: '#ef4444'
+                            },
+                            areaStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    {offset: 0, color: 'rgba(239, 68, 68, 0.5)'},
+                                    {offset: 1, color: 'rgba(239, 68, 68, 0.1)'}
+                                ])
+                            }
+                        }
+                    ]
+                };
+                
+                remoteTrendsChart.setOption(option);
+                
+                // 响应窗口大小变化
+                window.addEventListener('resize', function() {
+                    remoteTrendsChart.resize();
+                });
+            });
+        </script>
+    </section>
+    <section id="action" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">行动计划</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-600">提升远程工作竞争力的具体步骤</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-rocket text-blue-600 mr-3"></i>
+                        短期行动计划（1-3个月）
+                    </h3>
+                    
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4 flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center mr-3">1</div>
+                                    技能提升
+                                </h4>
+                                
+                                <div class="ml-11 space-y-4">
+                                    <div>
+                                        <h5 class="font-semibold text-blue-800 mb-2">技术技能</h5>
+                                        <ul class="space-y-3">
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-700"><span class="font-medium">云技术深化</span>：完成AWS或Azure的基础课程（如AWS Cloud Practitioner或Azure Fundamentals）</p>
+                                                    <p class="text-sm text-gray-500">每周10小时，1个月内完成</p>
+                                                </div>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-700"><span class="font-medium">DevOps技能强化</span>：学习CI/CD流程、容器化技术（Docker、Kubernetes）</p>
+                                                    <p class="text-sm text-gray-500">每周8小时，2个月内掌握基础知识</p>
+                                                </div>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-700"><span class="font-medium">AI/ML基础知识</span>：完成一个AI应用开发项目，展示在实际业务中应用AI的能力</p>
+                                                    <p class="text-sm text-gray-500">每周5小时，3个月内完成一个项目</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-semibold text-blue-800 mb-2">软技能</h5>
+                                        <ul class="space-y-3">
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-700"><span class="font-medium">异步沟通能力</span>：优化技术文档写作能力，学习Markdown高级格式，创建技术博客</p>
+                                                    <p class="text-sm text-gray-500">每周写一篇技术博客，持续3个月</p>
+                                                </div>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-gray-700"><span class="font-medium">时间管理</span>：采用番茄工作法或其他时间管理技术，记录工作效率提升</p>
+                                                    <p class="text-sm text-gray-500">每天实践，每周总结</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4 flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center mr-3">2</div>
+                                    认证获取
+                                </h4>
+                                
+                                <div class="ml-11">
+                                    <p class="text-gray-700 mb-4">选择以下认证之一开始准备，3个月内完成一个认证：</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-blue-50 rounded-lg p-4">
+                                            <h5 class="font-semibold mb-2">云认证</h5>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• AWS Certified Solutions Architect</li>
+                                                <li>• Azure Solutions Architect Expert</li>
+                                                <li>• Google Cloud Professional Architect</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="bg-blue-50 rounded-lg p-4">
+                                            <h5 class="font-semibold mb-2">DevOps认证</h5>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• AWS Certified DevOps Engineer</li>
+                                                <li>• Azure DevOps Engineer Expert</li>
+                                                <li>• Project Management Professional</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4 flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center mr-3">3</div>
+                                    在线形象优化
+                                </h4>
+                                
+                                <div class="ml-11 space-y-4">
+                                    <div>
+                                        <h5 class="font-semibold text-blue-800 mb-2">LinkedIn优化</h5>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">更新个人简介，突出远程工作经验和技能</p>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">添加关键词：远程协作、自主工作、跨时区协作等</p>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">请求前同事和上级添加推荐信，特别是关于远程工作能力的推荐</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-semibold text-blue-800 mb-2">GitHub优化</h5>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">整理现有项目，确保README文档清晰详细</p>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">为开源项目贡献代码，增加可见度</p>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">创建一个展示远程协作能力的项目</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-semibold text-blue-800 mb-2">个人网站/博客</h5>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">更新个人博客，增加关于远程工作经验和技能的内容</p>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">分享在阿里国际和网易云音乐的远程工作经验和最佳实践</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-road text-blue-600 mr-3"></i>
+                        长期职业发展计划（6个月-2年）
+                    </h3>
+                    
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4 flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center mr-3">1</div>
+                                    专业化发展
+                                </h4>
+                                
+                                <div class="ml-11">
+                                    <p class="text-gray-700 mb-4">根据市场趋势，选择以下一个或多个领域进行深入专业化：</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div class="bg-blue-50 rounded-lg p-4">
+                                            <h5 class="font-semibold mb-2">云原生开发</h5>
+                                            <p class="text-sm text-gray-700">深入学习Kubernetes、服务网格、无服务器架构等</p>
+                                        </div>
+                                        
+                                        <div class="bg-blue-50 rounded-lg p-4">
+                                            <h5 class="font-semibold mb-2">AI/ML工程</h5>
+                                            <p class="text-sm text-gray-700">将AI技能与软件开发结合，成为AI应用开发专家</p>
+                                        </div>
+                                        
+                                        <div class="bg-blue-50 rounded-lg p-4">
+                                            <h5 class="font-semibold mb-2">DevSecOps</h5>
+                                            <p class="text-sm text-gray-700">将安全融入DevOps流程，满足远程工作环境下的安全需求</p>
+                                        </div>
+                                        
+                                        <div class="bg-blue-50 rounded-lg p-4">
+                                            <h5 class="font-semibold mb-2">全栈开发</h5>
+                                            <p class="text-sm text-gray-700">进一步提升全栈能力，特别是前端技术（React、Vue等）</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-2">
+                                        <p class="text-gray-700 text-sm"><span class="font-medium">行动项</span>：</p>
+                                        <ul class="space-y-1 text-sm text-gray-700 ml-5 list-disc">
+                                            <li>选择一个专业化方向，制定6个月的学习计划</li>
+                                            <li>完成相关高级认证</li>
+                                            <li>构建展示专业技能的项目组合</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4 flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center mr-3">2</div>
+                                    建立专业网络
+                                </h4>
+                                
+                                <div class="ml-11 space-y-4">
+                                    <div>
+                                        <h5 class="font-semibold text-blue-800 mb-2">参与远程开发者社区</h5>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">加入Stack Overflow、GitHub Discussions、Dev.to等平台</p>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">参与开源项目，与全球开发者协作</p>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">参加虚拟技术会议和网络研讨会</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-semibold text-blue-800 mb-2">建立个人品牌</h5>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">定期发布技术博客和视频</p>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">在LinkedIn和Twitter上分享专业见解</p>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                                    <i class="fas fa-check text-blue-600 text-xs"></i>
+                                                </div>
+                                                <p class="text-gray-700 text-sm">考虑创建YouTube频道或播客，分享技术知识和远程工作经验</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4 flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center mr-3">3</div>
+                                    远程工作平台策略
+                                </h4>
+                                
+                                <div class="ml-11">
+                                    <p class="text-gray-700 mb-4">以下平台是2025年寻找远程软件开发工作的最佳选择：</p>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                        <div class="bg-blue-50 rounded-lg p-4">
+                                            <h5 class="font-semibold mb-2">专业远程工作平台</h5>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Arc.dev</li>
+                                                <li>• We Work Remotely</li>
+                                                <li>• FlexJobs</li>
+                                                <li>• Remotive.com</li>
+                                                <li>• Remote OK</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="bg-blue-50 rounded-lg p-4">
+                                            <h5 class="font-semibold mb-2">自由职业平台</h5>
+                                            <ul class="space-y-1 text-sm text-gray-700">
+                                                <li>• Toptal（高端开发者）</li>
+                                                <li>• Upwork（多样化项目）</li>
+                                                <li>• Contra（无佣金平台）</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-2">
+                                        <p class="text-gray-700 text-sm"><span class="font-medium">行动项</span>：</p>
+                                        <ul class="space-y-1 text-sm text-gray-700 ml-5 list-disc">
+                                            <li>在至少3个远程工作平台创建优化的个人资料</li>
+                                            <li>设置工作提醒，及时获取匹配的工作机会</li>
+                                            <li>每周投递2-3个高质量申请，而不是大量低质量申请</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 text-center">实施时间表</h3>
+                
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-200 ml-4 md:ml-6"></div>
+                    
+                    <div class="space-y-12">
+                        <!-- Month 1 -->
+                        <div class="relative pl-12 md:pl-16">
+                            <div class="absolute left-0 w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">1</div>
+                            <div class="timeline-dot"></div>
+                            
+                            <h4 class="text-xl font-semibold mb-3">第1个月</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">更新简历和在线资料（LinkedIn、GitHub、个人网站）</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">开始准备一个云认证</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">启动技术博客，每周发布一篇文章</p>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Month 2-3 -->
+                        <div class="relative pl-12 md:pl-16">
+                            <div class="absolute left-0 w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">2-3</div>
+                            <div class="timeline-dot"></div>
+                            
+                            <h4 class="text-xl font-semibold mb-3">第2-3个月</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">完成一个云认证考试</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">开发一个展示远程协作能力的项目</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">优化GitHub项目的文档和可见性</p>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Month 4-6 -->
+                        <div class="relative pl-12 md:pl-16">
+                            <div class="absolute left-0 w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">4-6</div>
+                            <div class="timeline-dot"></div>
+                            
+                            <h4 class="text-xl font-semibold mb-3">第4-6个月</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">开始准备DevOps或项目管理认证</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">在远程工作平台创建个人资料并开始申请</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">参与至少一个开源项目</p>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Month 7-12 -->
+                        <div class="relative pl-12 md:pl-16">
+                            <div class="absolute left-0 w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">7-12</div>
+                            <div class="timeline-dot"></div>
+                            
+                            <h4 class="text-xl font-semibold mb-3">第7-12个月</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">完成专业化学习计划</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">建立稳定的内容创作习惯（博客、视频等）</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">扩大专业网络，参与虚拟技术会议</p>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Month 13-24 -->
+                        <div class="relative pl-12 md:pl-16">
+                            <div class="absolute left-0 w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">13-24</div>
+                            <div class="timeline-dot"></div>
+                            
+                            <h4 class="text-xl font-semibold mb-3">第13-24个月</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">获取高级认证</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">考虑转向技术领导或专家角色</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center mt-1 mr-2">
+                                        <i class="fas fa-check text-blue-600 text-xs"></i>
+                                    </div>
+                                    <p class="text-gray-700">探索创业或副业机会</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">联系我</h2>
+                <div class="w-24 h-1 bg-white mx-auto"></div>
+                <p class="mt-4 text-xl opacity-90">准备好开始远程工作合作了吗？</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl overflow-hidden shadow-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-8 md:p-12 bg-gradient-to-br from-blue-50 to-indigo-50">
+                            <h3 class="text-2xl font-bold text-blue-600 mb-6">联系信息</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-gray-800 font-semibold mb-1">邮箱</h4>
+                                        <a href="mailto:1460300366@qq.com" class="text-blue-600 hover:text-blue-800 transition-colors">1460300366@qq.com</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-phone text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-gray-800 font-semibold mb-1">电话</h4>
+                                        <a href="tel:+8617764218703" class="text-blue-600 hover:text-blue-800 transition-colors">+86 177-6421-8703</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-globe text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-gray-800 font-semibold mb-1">个人网站</h4>
+                                        <a href="https://www.petterobam.cn" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors">www.petterobam.cn</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <i class="fab fa-linkedin text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-gray-800 font-semibold mb-1">LinkedIn</h4>
+                                        <a href="https://www.linkedin.com/in/petterobam/" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors">linkedin.com/in/petterobam</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <i class="fab fa-github text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-gray-800 font-semibold mb-1">GitHub</h4>
+                                        <a href="https://github.com/petterobam" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors">github.com/petterobam</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="text-gray-800 font-semibold mb-3">工作时区</h4>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                    <span>UTC+8 (中国标准时间)</span>
+                                    <span>可灵活调整</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-8 md:p-12 bg-white">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">发送消息</h3>
+                            
+                            <form class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="您的姓名">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="您的邮箱地址">
+                                </div>
+                                
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">主题</label>
+                                    <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="消息主题">
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">消息</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="请输入您的消息"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center justify-center">
+                                        <i class="fas fa-paper-plane mr-2"></i> 发送消息
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div class="mt-8 text-center">
+                                <p class="text-gray-600">或者直接下载我的简历</p>
+                                <a href="#" class="inline-block mt-3 bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-6 rounded-lg transition-all transform hover:scale-105">
+                                    <i class="fas fa-download mr-2"></i> 下载简历 (PDF)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16 text-center">
+                    <h3 class="text-2xl font-bold mb-6">准备好开始远程工作之旅了吗？</h3>
+                    <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+                        我期待着与您合作，将我的技术专长、远程工作经验和创新思维带入您的团队。让我们一起创造卓越的软件解决方案！
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="mailto:1460300366@qq.com" class="bg-white text-blue-600 hover:bg-blue-50 font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i> 发送邮件
+                        </a>
+                        <a href="https://www.linkedin.com/in/petterobam/" target="_blank" class="bg-white text-blue-600 hover:bg-blue-50 font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center">
+                            <i class="fab fa-linkedin mr-2"></i> LinkedIn联系
+                        </a>
+                        <a href="tel:+8617764218703" class="bg-white text-blue-600 hover:bg-blue-50 font-medium py-3 px-6 rounded-lg transition-all transform hover:scale-105 flex items-center">
+                            <i class="fas fa-phone mr-2"></i> 电话联系
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">欧阳洁</h3>
+                    <p class="text-gray-400">全栈软件工程师 | 远程工作专家</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/petterobam" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/petterobam/" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="https://www.petterobam.cn" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-globe text-2xl"></i>
+                    </a>
+                    <a href="mailto:1460300366@qq.com" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400 text-sm">
+                <p>© 2025 欧阳洁. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Mouse follower effect
+        document.addEventListener('mousemove', function(e) {
+            const mouseFollower = document.querySelector('.mouse-follower');
+            if (mouseFollower) {
+                mouseFollower.style.left = e.clientX + 'px';
+                mouseFollower.style.top = e.clientY + 'px';
+            }
+        });
+        
+        // Highlight active nav link based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Initialize any charts or animations when the page loads
+        window.addEventListener('load', function() {
+            // Animation for progress bars
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
